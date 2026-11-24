@@ -1,0 +1,13 @@
+{
+  "name": "Kestrel spend console",
+  "short_name": "Kestrel",
+  "start_url": "/kestrel-spend/console",
+  "display": "standalone",
+  "background_color": "#f2f4f3",
+  "theme_color": "#f2f4f3",
+  "icons": [
+    { "src": "/kestrel-spend/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/kestrel-spend/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/kestrel-spend/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

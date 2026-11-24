@@ -1,0 +1,23 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "kestrel-spend",
+  "main": "dist/server/server.js",
+  "compatibility_date": "2025-05-01",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true },
+  // Static files in dist/client are served first; everything else falls
+  // through to the SSR Worker.
+  "assets": {
+    "directory": "./dist/client",
+    "binding": "ASSETS",
+    "not_found_handling": "none",
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "kestrel-spend-db",
+      "database_id": "5a15ff66-39b3-410d-a468-91022acfc41b",
+      "migrations_dir": "migrations",
+    },
+  ],
+}

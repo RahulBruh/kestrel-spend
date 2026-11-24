@@ -1,0 +1,129 @@
+@import "tailwindcss" source(none);
+@source "../src";
+
+@layer base {
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    color-scheme: light;
+  }
+
+  body {
+    min-height: 100dvh;
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  * {
+    border-color: var(--color-line);
+  }
+
+  ::selection {
+    background: var(--color-cobalt-wash);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-cobalt);
+    outline-offset: 2px;
+  }
+}
+
+/* Kestrel / Talon design tokens. One accent (cobalt), cool paper neutrals,
+ * one functional state color (breach) reserved for budget overruns. */
+@theme {
+  --color-paper: #f2f4f3;
+  --color-paper-2: #e8ebea;
+  --color-raised: #fbfcfc;
+  --color-ink: #14181a;
+  --color-ink-2: #4a5257;
+  --color-ink-3: #6f787d;
+  --color-line: #d5dada;
+  --color-line-2: #e3e7e7;
+  --color-cobalt: #2b45d4;
+  --color-cobalt-2: #2238b0;
+  --color-cobalt-wash: #e3e8fb;
+  --color-breach: #b4362f;
+  --color-breach-wash: #f7e4e2;
+  --font-sans: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", monospace;
+  --radius-k: 6px;
+  --text-micro: 11px;
+  --text-micro--line-height: 14px;
+  --text-mini: 13px;
+  --text-mini--line-height: 18px;
+  --text-lede: 15px;
+  --text-lede--line-height: 22px;
+  --shadow-float: 0 1px 0 rgb(20 24 26 / 0.04), 0 12px 32px -12px rgb(20 24 26 / 0.22);
+  --ease-out-k: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Landing-page chapter overrides for the scrub journey (engine untouched). */
+.kestrel-journey .scroll-scrub__copy {
+  width: min(30rem, 36vw);
+}
+.kestrel-journey .scroll-scrub__title {
+  max-width: 12ch;
+  font-size: clamp(2.5rem, 4.6vw, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+.kestrel-journey .scroll-scrub__kicker {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: none;
+}
+.kestrel-journey .scroll-scrub__tags li {
+  border-radius: var(--radius-k);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+}
+.kestrel-journey .scroll-scrub__route {
+  top: 4.75rem;
+}
+@media (max-width: 860px) {
+  .kestrel-journey .scroll-scrub__copy {
+    width: 100%;
+  }
+}
+
+@keyframes k-rise {
+  from {
+    transform: translateY(14px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes k-pop {
+  from {
+    transform: translateY(6px) scale(0.985);
+    opacity: 0.6;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+.k-rise {
+  animation: k-rise 700ms var(--ease-out-k) both;
+}
+.k-pop {
+  animation: k-pop 180ms var(--ease-out-k) both;
+}
+@media (prefers-reduced-motion: reduce) {
+  .k-rise,
+  .k-pop {
+    animation: none;
+  }
+}
+
+.tabular {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
